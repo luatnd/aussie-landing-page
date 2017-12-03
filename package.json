@@ -4,11 +4,11 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
-    "build": "export AUSSIE_SOURCE_MAP=false && preact build",
-    "build-map": "export AUSSIE_SOURCE_MAP=true && preact build",
+    "dev": "export AUSSIE_SOURCE_MAP=true && preact watch --template src/template.html",
+    "build": "export AUSSIE_SOURCE_MAP=false && preact build --template src/template.html",
+    "build-map": "export AUSSIE_SOURCE_MAP=true && preact build --template src/template.html",
     "serve": "yarn build-map && serve -s build",
-    "dev": "export AUSSIE_SOURCE_MAP=true && preact watch",
+    "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
     "lint": "eslint src"
   },
   "dependencies": {
