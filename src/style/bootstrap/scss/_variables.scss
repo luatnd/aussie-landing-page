@@ -40,6 +40,8 @@ $purple:  #6f42c1 !default;
 $pink:    #e83e8c !default;
 $red:     #dc3545 !default;
 $orange:  #fd7e14 !default;
+// Luatnd: Change to Orange of design
+//$orange:  #fc964f !default;
 $yellow:  #ffc107 !default;
 $green:   #28a745 !default;
 $teal:    #20c997 !default;
@@ -67,7 +69,8 @@ $secondary:     $gray-600 !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
-$danger:        $red !default;
+//$danger:        $red !default;
+$danger:        $orange !default; // Luatnd change danger to orange.
 $light:         $gray-100 !default;
 $dark:          $gray-800 !default;
 

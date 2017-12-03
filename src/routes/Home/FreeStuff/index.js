@@ -6,9 +6,17 @@ export default class FreeStuff extends Component {
 	
 	render() {
 		return (
-			<div class={style.container}>
+			<div class={style.freeStuffC}>
 				
-				<h1>Wanna find Free Stuff</h1>
+				<p>Wanna Find Free Stuff? </p>
+				<p>Saving You Money Since 2005</p>
+				
+				<div class={style.btnGroup}>
+					<a href="#" class={`${style.btn} ${style['btn-danger']}`}>Free Samples</a>
+					<a href="#" class={`${style.btn} ${style['btn-danger']}`}>Free Samples</a>
+					<a href="#" class={`${style.btn} ${style['btn-danger']}`}>Free Samples</a>
+					<a href="#" class={`${style.btn} ${style['btn-danger']}`}>Free Samples</a>
+				</div>
 				
 			</div>
 		);

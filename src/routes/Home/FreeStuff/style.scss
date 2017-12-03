@@ -1,8 +1,117 @@
+@import '../../../style/bootstrap/scss/functions';
+@import '../../../style/bootstrap/scss/variables';
+@import '../../../style/bootstrap/scss/mixins';
+//@import '../../../style/bootstrap/scss/buttons';
+@import "../../../style/config";
 
-.container {
-	padding: 56px 20px;
-	min-height: 100%;
-	width: 100%;
 
-	border: 2px solid black;
+// Migrate from //@import '../../../style/bootstrap/scss/buttons';
+.btn {
+  display: inline-block;
+  font-weight: $btn-font-weight;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: $input-btn-border-width solid transparent;
+  @include button-size($input-btn-padding-y, $input-btn-padding-x, $font-size-base, $input-btn-line-height, $btn-border-radius);
+  @include transition($btn-transition);
+
+  // Share hover and focus styles
+  @include hover-focus {
+    text-decoration: none;
+  }
+  &:focus,
+  &.focus {
+    outline: 0;
+    box-shadow: $input-btn-focus-box-shadow;
+  }
+
+  // Disabled comes first so active can properly restyle
+  &.disabled,
+  &:disabled {
+    opacity: .65;
+    @include box-shadow(none);
+  }
+
+  &:not([disabled]):not(.disabled):active,
+  &:not([disabled]):not(.disabled).active {
+    background-image: none;
+    @include box-shadow($input-btn-focus-box-shadow, $btn-active-box-shadow);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+.btn-danger {
+  background-color: $myOrange;
+  border-color: $myOrange;
+
+  &:hover{
+    background-color: #e08349;
+    border-color: #e08349;
+  }
+
+  &:focus{
+    box-shadow: 0 0 0 0.2rem rgba(253, 160, 71, 0.5);
+  }
+}
+
+
+
+
+
+
+
+.freeStuffC {
+  width: 100%;
+  height: 670px;
+
+  text-align: center;
+
+  & > p:nth-child(1) {
+    margin-top: 173px;
+    margin-bottom: 0;
+
+    font-weight: 900; // Proxima Nova Bold
+    font-size: 75px;
+    line-height: 75px;
+    color: $whiteE;
+  }
+
+  & > p:nth-child(2) {
+    margin-top: 14px;
+
+    font-weight: 200; // Proxima Nova Light
+    font-size: 21px;
+    color: $whiteE;
+  }
+}
+
+.btnGroup{
+  margin-top: 133px;
+  display: flex;
+  justify-content: center;
+  flex-flow: row;
+
+  a {
+    margin: 0 18px;
+    padding: 0;
+    width: 200px;
+    height: 54px;
+    //background: $orange;
+    border-radius: 3px;
+
+    font-weight: 900; // Proxima Nova Bold
+    font-size: 18px;
+    line-height: 56px;
+    color: $whitePure;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
 }

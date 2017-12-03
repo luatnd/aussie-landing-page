@@ -3,9 +3,9 @@ $pagePadding: 15px;
 $headerHeight: 102px;
 $headerHeightXs: 60px;
 
-$pink: #A00F74;
-$pinkRgba: rgba(160,15,116, 0.8);
-$orange: #FC964F;
+$myPink: #A00F74;
+$myPinkRgba: rgba(160,15,116, 0.8);
+$myOrange: #FC964F;
 
 $whitePure: #FFF;
 $whiteE: #E2E3E4;
@@ -19,6 +19,10 @@ $fontSize: 15px;
 $lineHeight: 22px;
 
 $backgroundColor: $whitePure;
+
+
+
+// Require bootstrap mixins
 
 @mixin hidden-xs {
   @include media-breakpoint-only(xs) { display: none; }
