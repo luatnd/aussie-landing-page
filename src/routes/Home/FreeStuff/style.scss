@@ -41,12 +41,11 @@
   }
 }
 
-@each $color, $value in $theme-colors {
-  .btn-#{$color} {
-    @include button-variant($value, $value);
-  }
+.btn-danger {
+  @include button-variant($danger, $danger);
 }
 
+// Overwrite default
 .btn-danger {
   background-color: $myOrange;
   border-color: $myOrange;

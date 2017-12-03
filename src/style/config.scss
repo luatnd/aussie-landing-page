@@ -20,6 +20,15 @@ $lineHeight: 22px;
 
 $backgroundColor: $whitePure;
 
+/**
+ * map-get($fontW, light);
+ */
+$fontW: (
+        light: 200,
+        regular: 400,
+        semibold: 700,
+        bold: 900
+) !default;
 
 
 // Require bootstrap mixins
@@ -46,4 +55,16 @@ maxWidthEqXl(md)
  */
 @mixin maxWidth($screenSizeType) {
   max-width: map-get($grid-breakpoints, $screenSizeType) + 2 * $pagePadding;
+}
+
+
+/**
+aussieText make text format for this project only
+myText__fw_fs_lh_c(light, 16px, 20px, #999)
+ */
+@mixin myText__fw_fs_lh_c($fWeight, $fSize, $lh, $color) {
+  font-weight: map-get($fontW, $fWeight);
+  font-size: $fSize;
+  line-height: $lh;
+  color: $color;
 }
