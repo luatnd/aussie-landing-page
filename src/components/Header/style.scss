@@ -35,11 +35,14 @@ $headerHeightXs: 60px;
   .dropMenu {
     clear: both;
     position: relative;
-    margin-top: 2px;
     padding-top: 0;
-    border-top: 1px solid $whiteE;
     background: $pinkRgba;
     height:auto;
+
+    &.show{
+      margin-top: 0;
+      border-top: 1px solid $whiteE;
+    }
   }
 }
 
@@ -99,6 +102,14 @@ $headerHeightXs: 60px;
   }
 }
 
+// Icon
+//.menu a i {
+//  font-family: Arial, sans-serif;
+//
+//  font-weight: normal;
+//  padding-left: 10px;
+//}
+
 .btnNavbar{
   cursor: pointer;
   display: block;
@@ -116,6 +127,11 @@ $headerHeightXs: 60px;
     margin: 5px auto 0;
     background-color: $whiteE;
   }
+
+  &.btnNavbar__Sm{
+    display: inline-block;
+
+  }
 }
 
 
@@ -125,15 +141,22 @@ $headerHeightXs: 60px;
   overflow: hidden;
   height: 0;
 
-  &.show {
-    height: auto;
-  }
-
   a {
     display: block;
   }
 }
 
+.dropMenu.show > .dropMenuInner {
+  height: auto;
+}
+
+.dropMenuXs {
+  border: none;
+}
+
+.dropMenuSm {
+  border: none;
+}
 
 
 // For xs screen, no @media query
@@ -146,7 +169,7 @@ $headerHeightXs: 60px;
     img { width: 220px; }
   }
   .menu > nav a {
-    padding: 0 15px;
+    padding: 0 10px;
 
     span { padding-bottom: 8px; }
   }
@@ -161,6 +184,7 @@ $headerHeightXs: 60px;
 
 //@media (min-width: 576px)
 @include media-breakpoint-up(sm) {
+  .menu > nav { padding-top: 1px; }
   .logoC {
     padding-left: 15px;
     img { width: 220px; }
@@ -170,7 +194,8 @@ $headerHeightXs: 60px;
 //@media (min-width: 768px)
 @include media-breakpoint-up(md) {
   .fixedMenuC { height: $headerHeight; }
-  .menu > nav { padding-top: 28px; }
+  .menu > nav { padding-top: 24px; }
+  .menu > nav a { padding: 0 10px; }
   .logoC {
     padding-top: 28px;
     padding-left: 15px;
@@ -179,10 +204,15 @@ $headerHeightXs: 60px;
   .menu > nav a {
     padding: 0 22px;
   }
+
+  .menu .dropMenu.show{
+    margin-top: 15px;
+  }
 }
 
 //@media (min-width: 992px)
 @include media-breakpoint-up(lg) {
+  .menu > nav { padding-top: 28px; }
   .menu > nav a {
     span {
       padding-bottom: 8px;

@@ -7,7 +7,13 @@ import logo from '../../assets/images/logo-white.png'
 
 export default class Header extends Component {
   state = {
-  	dropMenuShow: false,
+  	[style.dropMenuXs]: false,
+  	[style.dropMenuSm]: false,
+	}
+	
+	shouldComponentUpdate(nextProps, nextState) {
+    return this.state[style.dropMenuXs] !== nextState[style.dropMenuXs]
+      || this.state[style.dropMenuSm] !== nextState[style.dropMenuSm];
 	}
 	
 	componentDidMount() {
@@ -29,17 +35,24 @@ export default class Header extends Component {
       if (clickedOnMenu === null) {
         // Mean click outside menu --> hide drop menu
   
-        this.setState({dropMenuShow: false});
+        this.setState({
+          [style.dropMenuXs]: false,
+          [style.dropMenuSm]: false,
+        });
       }
     }
   }
  
-	btnNavbarClick = (e) => {
-  	this.setState({dropMenuShow: !this.state.dropMenuShow});
+	btnNavbarClick = (targetMenuClass) => (e) => {
+    this.setState(Object.assign({
+      [style.dropMenuXs]: false,
+      [style.dropMenuSm]: false,
+    }, {[targetMenuClass]: !this.state[targetMenuClass]}));
 	}
 	
 	render() {
-		const dropMenuShow_Class = this.state.dropMenuShow ? style.show : '';
+    const dropMenuXs_ShowClass = this.state[style.dropMenuXs] ? style.show : '';
+    const dropMenuSm_ShowClass = this.state[style.dropMenuSm] ? style.show : '';
 		
 		return (
 			<header class={style.fixedMenuC}>
@@ -61,12 +74,21 @@ export default class Header extends Component {
 					<nav class={`show-lg-md-sm ${style.hiddenXl} ${style.hiddenXs}`}>
 						<Link activeClassName={style.active} href="/"><Text text="Home"/></Link>
 						<Link activeClassName={style.active} href="/profile"><Text text="Contact us"/></Link>
-						<Link activeClassName={style.active} href="/profile/all"><Text text="Special Promotions"/></Link>
+						
+						<a href="javascript:void(0)" onClick={this.btnNavbarClick(style.dropMenuSm)}>
+							<span>Special Promotions</span>
+						</a>
+						
+						<div class={`${style.btnNavbar} ${style.btnNavbar__Sm}`} onClick={this.btnNavbarClick(style.dropMenuSm)}>
+							<span class={style.iconBar}/>
+							<span class={style.iconBar}/>
+							<span class={style.iconBar}/>
+						</div>
 					</nav>
 					
 					<nav class={`show-xs ${style.hiddenXl} ${style.hiddenLg} ${style.hiddenMd} ${style.hiddenSm}`}>
 						
-						<div class={style.btnNavbar} onClick={this.btnNavbarClick}>
+						<div class={style.btnNavbar} onClick={this.btnNavbarClick(style.dropMenuXs)}>
 							<span class={style.iconBar}/>
 							<span class={style.iconBar}/>
 							<span class={style.iconBar}/>
@@ -74,10 +96,19 @@ export default class Header extends Component {
 						
 					</nav>
 					
-					<nav class={style.dropMenu}>
-						<div class={`${style.dropMenuInner} ${dropMenuShow_Class}`}>
+					<nav class={`${style.dropMenu} ${style.dropMenuXs} ${dropMenuXs_ShowClass}`}>
+						<div class={`${style.dropMenuInner}`}>
 							<Link activeClassName={style.active} href="/"><Text text="Home"/></Link>
 							<Link activeClassName={style.active} href="/profile"><Text text="Contact us"/></Link>
+							<Link activeClassName={style.active} href="/profile/john1"><Text text="Special Promotion 1"/></Link>
+							<Link activeClassName={style.active} href="/profile/john2"><Text text="Special Promotion 2"/></Link>
+							<Link activeClassName={style.active} href="/profile/john3"><Text text="Special Promotion 3"/></Link>
+							<Link activeClassName={style.active} href="/profile/john4"><Text text="Special Promotion 4"/></Link>
+						</div>
+					</nav>
+					
+					<nav class={`${style.dropMenu} ${style.dropMenuSm} ${dropMenuSm_ShowClass}`}>
+						<div class={`${style.dropMenuInner}`}>
 							<Link activeClassName={style.active} href="/profile/john1"><Text text="Special Promotion 1"/></Link>
 							<Link activeClassName={style.active} href="/profile/john2"><Text text="Special Promotion 2"/></Link>
 							<Link activeClassName={style.active} href="/profile/john3"><Text text="Special Promotion 3"/></Link>
@@ -92,5 +123,5 @@ export default class Header extends Component {
 }
 
 function Text(props) {
-	return <span>{props.text}</span>;
+  return <span dangerouslySetInnerHTML={{__html: props.text}}/>;
 }
