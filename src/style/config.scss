@@ -35,3 +35,11 @@ $backgroundColor: $whitePure;
 @mixin hidden-xl {
   @include media-breakpoint-only(xl) { display: none; }
 }
+
+/**
+maxWidthEqXl(xl)
+maxWidthEqXl(md)
+ */
+@mixin maxWidth($screenSizeType) {
+  max-width: map-get($grid-breakpoints, $screenSizeType) + 2 * $pagePadding;
+}

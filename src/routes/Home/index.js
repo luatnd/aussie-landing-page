@@ -16,12 +16,16 @@ export default class Home extends Component {
 		return (
 			<div class={style.home}>
 				
-				<ParallaxImageBg
-					bgPreload={preloadImg}
-					bgLoaded={'./assets/images/node-hd.jpeg'}
-				>
-					<FreeStuff/>
-				</ParallaxImageBg>
+				<div class={style.free}>
+					<ParallaxImageBg
+						height={670}
+						bgPreload={preloadImg}
+						bgHd={'./assets/images/aussiefreebieguru-4.jpg'}
+					>
+						<div class={style.mask}/>
+						<FreeStuff/>
+					</ParallaxImageBg>
+				</div>
 				
 				<Offer/>
 				
