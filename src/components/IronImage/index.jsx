@@ -22,6 +22,7 @@ export default class IronImage extends Component {
   constructor(props) {
     super(props);
     this.ironImageHd = null;
+    this.ironImagePre = null;
     this.hdImg = null;
   }
   
@@ -77,6 +78,7 @@ export default class IronImage extends Component {
   showHD = () => {
     this.ironImageHd.setAttribute('style', `background-image: url('${this.props.srcLoaded}')`);
     this.ironImageHd.classList.add(style.loaded);
+    this.ironImagePre.classList.add(style.loaded);
   }
   
   render() {
@@ -85,12 +87,11 @@ export default class IronImage extends Component {
       <div class={style.container}>
         <div
           class={style.hdImg}
-          ref={ele => {
-            this.ironImageHd = ele
-          }}>
+          ref={ele => {this.ironImageHd = ele}}>
         </div>
         <div
           class={style.preloadImg}
+          ref={ele => {this.ironImagePre = ele}}>
           style={{backgroundImage: `url('${this.props.srcPreload}')`}}>
         </div>
       </div>
