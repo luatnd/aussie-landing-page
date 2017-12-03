@@ -6,7 +6,7 @@ $headerHeight: 102px;
 $logoHeight: 50px;
 $headerHeightXs: 60px;
 
-.header {
+.headerC {
   position: fixed;
   left: 0;
   top: 0;
@@ -15,6 +15,12 @@ $headerHeightXs: 60px;
   background: $pink;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   z-index: 50;
+}
+
+.header {
+  margin: 0 auto;
+  width: 100%;
+  max-width: map-get($grid-breakpoints, xl);
 }
 
 .logoC {
@@ -77,7 +83,7 @@ $headerHeightXs: 60px;
 
 // For xs screen, no @media query
 @include media-breakpoint-up(xs) {
-  .header { height: $headerHeightXs; }
+  .headerC { height: $headerHeightXs; }
   .header > nav { padding-top: 8px; }
   .logoC {
     padding-top: 8px;
@@ -93,7 +99,6 @@ $headerHeightXs: 60px;
 
 //@media (min-width: 576px)
 @include media-breakpoint-up(sm) {
-  .header { height: $headerHeightXs; }
   .logoC {
     padding-left: 15px;
     img { width: 220px; }
@@ -102,7 +107,7 @@ $headerHeightXs: 60px;
 
 //@media (min-width: 768px)
 @include media-breakpoint-up(md) {
-  .header { height: $headerHeight; }
+  .headerC { height: $headerHeight; }
   .header > nav { padding-top: 28px; }
   .logoC {
     padding-top: 28px;
@@ -123,7 +128,9 @@ $headerHeightXs: 60px;
 
 //@media (min-width: 1200px)
 @include media-breakpoint-up(xl) {
-
+  .header {
+    max-width: 1250px;
+  }
 }
 
 
