@@ -87,13 +87,14 @@ export default class IronImage extends Component {
       <div class={style.container}>
         <div
           class={style.hdImg}
-          ref={ele => {this.ironImageHd = ele}}>
-        </div>
+          ref={ele => this.ironImageHd = ele}
+          style=""
+        />
         <div
           class={style.preloadImg}
-          ref={ele => {this.ironImagePre = ele}}>
-          style={{backgroundImage: `url('${this.props.srcPreload}')`}}>
-        </div>
+          ref={ele => this.ironImagePre = ele}
+          style={{backgroundImage: `url('${this.props.srcPreload}')`}}
+        />
       </div>
     
     )
