@@ -2,6 +2,7 @@
 @import '../../../style/bootstrap/scss/variables';
 @import '../../../style/bootstrap/scss/mixins';
 //@import '../../../style/bootstrap/scss/buttons';
+@import "../../../style/bootstrap/scss/bootstrap-grid-custom";
 @import "../../../style/config";
 
 // Migrate from //@import '../../../style/bootstrap/scss/buttons';
@@ -118,7 +119,7 @@
   .back{
     z-index: 1;
 
-    width: 673px;
+    width: 100%;
     height: 450px;
 
     background: white;
@@ -126,16 +127,17 @@
   .front{
     z-index: 2;
 
-    width: 673px;
-    height: 360px;
+    width: 100%;
+    height: 280px;
+    padding: 48px 20px;
 
-    padding: 48px 78px;
     background: $myPink;
 
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
-    text-align: left;
+    align-items: center;
+    text-align: center;
 
     box-shadow: 5px 5px 18px 5px rgba(0, 0, 0, 0.2);
 
@@ -143,6 +145,7 @@
       @include myText__fw_fs_lh_c(bold, 31px, 29px, $whitePure);
       margin: 0;
       padding-top: 6px;
+      font-size: 26px;
     }
     & > p{
       @include myText__fw_fs_lh_c(regular, 15px, 25px, $whitePure);
@@ -157,29 +160,110 @@
 }
 
 
-// Text left and image right
-.txtToImg {
-  flex-direction: row-reverse;
-  .back {
-    margin-left: -18px;
-  }
-  .front {
-    margin-right: -18px;
-  }
-}
-
-// Image left and text right
-.imgToTxt {
-  flex-direction: row;
-  .back {
-    margin-right: -18px;
-  }
-  .front {
-    margin-left: -18px;
-  }
-}
-
 .viewAll {
   margin-top: 150px;
   text-align: center;
+}
+
+
+$backRatio: 673/450;
+$frontRatio: 673/360;
+
+@include media-breakpoint-up(sm) {
+  .item{
+    .front{
+      & > h4{
+        font-size: 31px;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .item{
+    .back {
+      width: 384px;
+      height: 333px;
+    }
+    .front{
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+      align-items: left;
+      text-align: left;
+
+      padding: 48px 30px;
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  // Text left and image right
+  .txtToImg {
+    flex-direction: row-reverse;
+    //.back { margin-left: -18px; }
+    //.front { margin-right: -18px; }
+  }
+
+  // Image left and text right
+  .imgToTxt {
+    flex-direction: row;
+    //.back { margin-right: -18px; }
+    //.front { margin-left: -18px; }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .item{
+    .back {
+      width: 480px;
+      height: (480/$backRatio)px;
+    }
+    .front{
+      padding: 48px 78px;
+      width: 480px - 2*78px;
+      height: (480/$frontRatio)px - 2*48px;
+    }
+  }
+
+  // Text left and image right
+  .txtToImg {
+    flex-direction: row-reverse;
+    .back { margin-left: -18px; }
+    .front { margin-right: -18px; }
+  }
+
+  // Image left and text right
+  .imgToTxt {
+    flex-direction: row;
+    .back { margin-right: -18px; }
+    .front { margin-left: -18px; }
+  }
+}
+@include media-breakpoint-up(xl) {
+  .item{
+    .back {
+      width: 585px;
+      height: (585/$backRatio)px;
+    }
+    .front{
+      padding: 48px 78px;
+      width: 585px - 2*78px;
+      height: (585/$frontRatio)px - 2*48px;
+    }
+  }
+}
+
+@media (min-width: 1360px) {
+  .item{
+    .back {
+      width: 673px;
+      height: 450px;
+    }
+    .front{
+      padding: 48px 78px;
+      width: 673px - 2*78px;
+      height: 360px - 2*48px;
+    }
+  }
 }
