@@ -74,17 +74,27 @@
   text-align: center;
 
   & > p:nth-child(1) {
-    margin-top: 173px;
+    margin-top: 73px;
     margin-bottom: 0;
 
     font-weight: 900; // Proxima Nova Bold
-    font-size: 75px;
-    line-height: 75px;
+    font-size: 32px;
+    line-height: 32px;
     color: $whiteE;
+
+    @include media-breakpoint-up(sm) {
+      font-size: 42px;
+      line-height: 42px;
+    }
+    @include media-breakpoint-up(md) {
+      margin-top: 173px;
+      font-size: 75px;
+      line-height: 75px;
+    }
   }
 
   & > p:nth-child(2) {
-    margin-top: 14px;
+    margin-top: 12px;
 
     font-weight: 200; // Proxima Nova Light
     font-size: 21px;
@@ -93,13 +103,18 @@
 }
 
 .btnGroup{
-  margin-top: 133px;
+  margin-top: 63px;
   display: flex;
   justify-content: center;
   flex-flow: row;
+  flex-wrap: wrap;
+
+  @include media-breakpoint-up(md) {
+    margin-top: 113px;
+  }
 
   a {
-    margin: 0 18px;
+    margin: 18px;
     padding: 0;
     width: 200px;
     height: 54px;
