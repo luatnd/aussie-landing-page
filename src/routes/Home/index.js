@@ -7,7 +7,7 @@ import Offer from './Offer';
 
 import style from './style.scss';
 
-import preloadImg from '../../assets/images/node.jpg';
+import preloadImg from '../../assets/images/aussiefreebieguru-4-xs-80.jpg';
 
 
 export default class Home extends Component {
