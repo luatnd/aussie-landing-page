@@ -1,0 +1,15 @@
+@import "../../style/bootstrap/scss/bootstrap-grid";
+@import "../../style/config";
+
+.home {
+  margin: 0 auto;
+  width: 100%;
+  max-width: map-get($grid-breakpoints, xl) + 2 * $pagePadding;
+  min-height: 100%;
+  background: #eee;
+  padding: $headerHeightXs $pagePadding 0 $pagePadding;
+
+  @include media-breakpoint-up(md) {
+    padding: $headerHeightXs $pagePadding 0 $pagePadding;
+  }
+}
