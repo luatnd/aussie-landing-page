@@ -1,5 +1,6 @@
 
 $pink: #A00F74;
+$pinkRgba: rgba(160,15,116, 0.8);
 $orange: #FC964F;
 
 $whitePure: #FFF;
@@ -14,3 +15,19 @@ $fontSize: 15px;
 $lineHeight: 22px;
 
 $backgroundColor: $whitePure;
+
+@mixin hidden-xs {
+  @include media-breakpoint-only(xs) { display: none; }
+}
+@mixin hidden-sm {
+  @include media-breakpoint-only(sm) { display: none; }
+}
+@mixin hidden-md {
+  @include media-breakpoint-only(md) { display: none; }
+}
+@mixin hidden-lg {
+  @include media-breakpoint-only(lg) { display: none; }
+}
+@mixin hidden-xl {
+  @include media-breakpoint-only(xl) { display: none; }
+}

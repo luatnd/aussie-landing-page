@@ -6,7 +6,16 @@ $headerHeight: 102px;
 $logoHeight: 50px;
 $headerHeightXs: 60px;
 
-.headerC {
+
+.hidden { display: none }
+.hiddenXs { @include hidden-xs; }
+.hiddenSm { @include hidden-sm; }
+.hiddenMd { @include hidden-md; }
+.hiddenLg { @include hidden-lg; }
+.hiddenXl { @include hidden-xl; }
+
+
+.fixedMenuC {
   position: fixed;
   left: 0;
   top: 0;
@@ -17,11 +26,23 @@ $headerHeightXs: 60px;
   z-index: 50;
 }
 
-.header {
+.menu {
+  position: relative;
   margin: 0 auto;
   width: 100%;
   max-width: map-get($grid-breakpoints, xl);
+
+  .dropMenu {
+    clear: both;
+    position: relative;
+    margin-top: 2px;
+    padding-top: 0;
+    border-top: 1px solid $whiteE;
+    background: $pinkRgba;
+    height:auto;
+  }
 }
+
 
 .logoC {
   float: left;
@@ -33,19 +54,19 @@ $headerHeightXs: 60px;
   }
 }
 
-.header > nav {
+.menu > nav {
   float: right;
   font-size: 16px;
   padding-left: 0;
 }
 
-.header > nav > a {
+.menu > nav a {
   display: inline-block;
   height: 56px;
   line-height: 56px;
   min-width: 50px;
   text-align: center;
-  background: rgba(255, 255, 255, 0);
+  background: transparent;
   text-decoration: none;
   will-change: background-color;
 
@@ -60,40 +81,81 @@ $headerHeightXs: 60px;
   }
 }
 
-.header > nav > a:hover,
-.header > nav > a:active {
+.menu > nav a:hover,
+.menu > nav a:active {
   //background: rgba(0, 0, 0, 0.2);
 
   span {
-    border-bottom: 2px solid darken(rgba(255,255,255,0.6), 20%);
+    //border-bottom: 2px solid darken(rgba(255,255,255,0.6), 20%);
   }
 }
 
-.header > nav > a.active {
+.menu > nav a.active {
   //background: rgba(0, 0, 0, 0.4);
   font-weight: 900; // Proxima Nova Bold
 
   span {
-    border-bottom: 2px solid $whiteE;
+    //border-bottom: 2px solid $whiteE;
   }
 }
 
+.btnNavbar{
+  cursor: pointer;
+  display: block;
+  margin: 14px 10px 0 0;
+  padding: 0;
+
+  &:hover{
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .iconBar {
+    display: block;
+    width: 18px;
+    height: 2px;
+    margin: 5px auto 0;
+    background-color: $whiteE;
+  }
+}
+
+
+.dropMenu > .dropMenuInner {
+  background: inherit;
+  transition: height 0.5s;
+  overflow: hidden;
+  height: 0;
+
+  &.show {
+    height: auto;
+  }
+
+  a {
+    display: block;
+  }
+}
 
 
 
 // For xs screen, no @media query
 @include media-breakpoint-up(xs) {
-  .headerC { height: $headerHeightXs; }
-  .header > nav { padding-top: 8px; }
+  .fixedMenuC { height: $headerHeightXs; }
+  .menu > nav { padding-top: 8px; }
   .logoC {
     padding-top: 8px;
     padding-left: 6px;
     img { width: 220px; }
   }
-  .header > nav > a {
+  .menu > nav a {
     padding: 0 15px;
 
     span { padding-bottom: 8px; }
+  }
+
+  .dropMenu { width: 100%; }
+  .dropMenu a {
+    height: 50px!important;
+    line-height: 50px!important;
+    border-bottom: 1px solid rgb(134, 13, 97);
   }
 }
 
@@ -107,28 +169,44 @@ $headerHeightXs: 60px;
 
 //@media (min-width: 768px)
 @include media-breakpoint-up(md) {
-  .headerC { height: $headerHeight; }
-  .header > nav { padding-top: 28px; }
+  .fixedMenuC { height: $headerHeight; }
+  .menu > nav { padding-top: 28px; }
   .logoC {
     padding-top: 28px;
     padding-left: 15px;
     img { width: 257px; }
   }
-  .header > nav > a {
+  .menu > nav a {
     padding: 0 22px;
-
-    span { padding-bottom: 8px; }
   }
 }
 
 //@media (min-width: 992px)
 @include media-breakpoint-up(lg) {
+  .menu > nav a {
+    span {
+      padding-bottom: 8px;
+    }
+  }
 
+  .menu > nav a:hover,
+  .menu > nav a:active {
+    span { border-bottom: 2px solid darken(rgba(255, 255, 255, 0.6), 20%); }
+  }
+  .menu > nav a.active {
+    span { border-bottom: 2px solid $whiteE; }
+  }
+
+  .dropMenu a {
+    height: 56px!important;
+    line-height: 56px!important;
+    border-bottom: none;
+  }
 }
 
 //@media (min-width: 1200px)
 @include media-breakpoint-up(xl) {
-  .header {
+  .menu {
     max-width: 1250px;
   }
 }
