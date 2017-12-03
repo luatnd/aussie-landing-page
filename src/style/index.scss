@@ -1,0 +1,39 @@
+@import "./config";
+
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: $backgroundColor;
+
+  font-family: $fontFamily;
+  font-style: $fontStyle;
+  font-weight: $fontWeight;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  color: #444;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  height: 100%;
+}
+
+// Extra small devices (portrait phones, less than 576px)
+//@include media-breakpoint-up(xs) { ... }
+
+// Small devices (landscape phones, 576px and up)
+//@include media-breakpoint-up(sm) { ... }
+
+// Medium devices (tablets, 768px and up)
+//@include media-breakpoint-up(md) { ... }
+
+// Large devices (desktops, 992px and up)
+//@include media-breakpoint-up(lg) { ... }
+
+// Extra large devices (large desktops, 1200px and up)
+//@include media-breakpoint-up(xl) { ... }
+
+

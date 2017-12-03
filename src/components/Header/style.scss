@@ -1,0 +1,144 @@
+@import "../../style/bootstrap/scss/bootstrap-grid";
+@import "../../style/config";
+
+
+$headerHeight: 102px;
+$logoHeight: 50px;
+$headerHeightXs: 60px;
+
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 0;
+  background: $pink;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  z-index: 50;
+}
+
+.logoC {
+  float: left;
+  margin: 0;
+  padding: 0 15px 0 15px;
+
+  img {
+    height: auto;
+  }
+}
+
+.header > nav {
+  float: right;
+  font-size: 16px;
+  padding-left: 0;
+}
+
+.header > nav > a {
+  display: inline-block;
+  height: 56px;
+  line-height: 56px;
+  min-width: 50px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0);
+  text-decoration: none;
+  will-change: background-color;
+
+  color: $whiteE;
+  font-size: 1rem;
+  font-weight: 200; // Proxima Nova Light
+
+  span {
+    line-height: 1rem;
+    border-bottom-color: transparent;
+    transition: font-weight 0.3s, border-bottom-color 0.5s;
+  }
+}
+
+.header > nav > a:hover,
+.header > nav > a:active {
+  //background: rgba(0, 0, 0, 0.2);
+
+  span {
+    border-bottom: 2px solid darken(rgba(255,255,255,0.6), 20%);
+  }
+}
+
+.header > nav > a.active {
+  //background: rgba(0, 0, 0, 0.4);
+  font-weight: 900; // Proxima Nova Bold
+
+  span {
+    border-bottom: 2px solid $whiteE;
+  }
+}
+
+
+
+
+// For xs screen, no @media query
+@include media-breakpoint-up(xs) {
+  .header { height: $headerHeightXs; }
+  .header > nav { padding-top: 8px; }
+  .logoC {
+    padding-top: 8px;
+    padding-left: 6px;
+    img { width: 220px; }
+  }
+  .header > nav > a {
+    padding: 0 15px;
+
+    span { padding-bottom: 8px; }
+  }
+}
+
+//@media (min-width: 576px)
+@include media-breakpoint-up(sm) {
+  .header { height: $headerHeightXs; }
+  .logoC {
+    padding-left: 15px;
+    img { width: 220px; }
+  }
+}
+
+//@media (min-width: 768px)
+@include media-breakpoint-up(md) {
+  .header { height: $headerHeight; }
+  .header > nav { padding-top: 28px; }
+  .logoC {
+    padding-top: 28px;
+    padding-left: 15px;
+    img { width: 257px; }
+  }
+  .header > nav > a {
+    padding: 0 22px;
+
+    span { padding-bottom: 8px; }
+  }
+}
+
+//@media (min-width: 992px)
+@include media-breakpoint-up(lg) {
+
+}
+
+//@media (min-width: 1200px)
+@include media-breakpoint-up(xl) {
+
+}
+
+
+
+// For xs screen, no @media query
+@include media-breakpoint-up(xs) { }
+
+//@media (min-width: 576px)
+@include media-breakpoint-up(sm) { }
+
+//@media (min-width: 768px)
+@include media-breakpoint-up(md) { }
+
+//@media (min-width: 992px)
+@include media-breakpoint-up(lg) { }
+
+//@media (min-width: 1200px)
+@include media-breakpoint-up(xl) { }
