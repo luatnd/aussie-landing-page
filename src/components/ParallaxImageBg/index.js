@@ -3,7 +3,7 @@ import style from './style.scss';
 
 import IronImage from '../../components/IronImage';
 
-const scrollStep = 10; // 50px per step
+const scrollStep = 1; // 50px per step
 const transitionAttr = 'top';
 const parallaxRatio = 1.5;
 
