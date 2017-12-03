@@ -8,6 +8,15 @@ const documentReadStatus = {
   complete: "complete", // – the document was fully read and all resources (like images) are loaded too.
 }
 
+
+/**
+ * Usage:
+ *  srcPreload: Can be image url or image data or sth can be display
+ *  srcLoaded: Must be a image url to fetch, do not use image data
+ *
+ * <IronImage srcPreload={preloadImg} srcLoaded={'./assets/images/node-hd.jpeg'} />
+ * <IronImage srcPreload={'./assets/images/node.jpg'} srcLoaded={'./assets/images/node-hd.jpeg'} />
+ */
 export default class IronImage extends Component {
   
   constructor(props) {

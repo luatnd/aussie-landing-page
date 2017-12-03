@@ -1,11 +1,37 @@
 @import "../../style/bootstrap/scss/bootstrap-grid";
 @import "../../style/config";
 
-.container {
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	min-height: 100%;
+.parallaxC {
+  margin: 0;
+  padding: 0;
+  width: 100%;
 
-	border: 2px solid black;
+  //border: 2px solid black;
+}
+
+.parallax {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.layer {
+  position: absolute;
+  z-index: 3; // Larger than the ImageIron
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: top 50ms;
+  transform: translateZ(0);
+}
+
+//Background
+.layer__bg {
+  z-index: 3; // Larger than the ImageIron
+}
+
+//Foreground
+.layer__fg {
+  z-index: 4; // Larger than the ImageIron
 }
