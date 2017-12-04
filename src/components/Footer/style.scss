@@ -161,7 +161,11 @@
 
 //@media (min-width: 992px)
 @include media-breakpoint-up(lg) {
-  .aboutUs {justify-content: space-between;}
+  .aboutUs {
+    justify-content: space-between;
+    padding-bottom: 138px;
+    padding-top: 60px;
+  }
   .aboutUs p{
     width: 570px;
     margin-top: 15px;
