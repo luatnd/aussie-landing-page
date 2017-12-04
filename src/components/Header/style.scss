@@ -183,6 +183,7 @@ $logoHeight: 50px;
 //@media (min-width: 576px)
 @include media-breakpoint-up(sm) {
   .menu > nav { padding-top: 1px; }
+  .menu > nav a{ padding: 0 9px;}
   .logoC {
     padding-left: 15px;
     img { width: 220px; }
