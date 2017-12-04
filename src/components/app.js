@@ -4,7 +4,8 @@ import { Router } from 'preact-router';
 import Header from './Header';
 import Footer from './Footer';
 import Home from '../routes/Home';
-import Profile from '../routes/Profile';
+import PromotionPage from '../routes/PromotionPage';
+import ContactPage from '../routes/ContactPage';
 
 // import Home from 'async!../routes/home';
 // import Profile from 'async!../routes/profile';
@@ -26,8 +27,9 @@ export default class App extends Component {
 				
 				<Router onChange={this.handleRoute}>
 					<Home path="/" />
-					<Profile path="/profile/" user="me" />
-					<Profile path="/profile/:user" />
+					<PromotionPage path="/promotions" promotionId="promotion-id-1" />
+					<PromotionPage path="/promotion/:promotionId" />
+					<ContactPage path="/contact-us" />
 				</Router>
 				
 				<Footer/>

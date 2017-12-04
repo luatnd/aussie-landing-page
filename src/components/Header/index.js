@@ -5,6 +5,14 @@ import style from './style.scss';
 import logo from '../../assets/images/logo-white.png'
 
 
+const linkHome = <Link activeClassName={style.active} href="/"><Text text="Home"/></Link>;
+const linkContactUs = <Link activeClassName={style.active} href="/contact-us"><Text text="Contact us"/></Link>;
+const linkP1 = <Link activeClassName={style.active} href="/promotion/super-market-sale"><Text text="Special Promotion 1"/></Link>;
+const linkP2 = <Link activeClassName={style.active} href="/promotion/promotion-2"><Text text="Special Promotion 2"/></Link>;
+const linkP3 = <Link activeClassName={style.active} href="/promotion/promotion-3"><Text text="Special Promotion 3"/></Link>;
+const linkP4 = <Link activeClassName={style.active} href="/promotion/promotion-4"><Text text="Special Promotion 4"/></Link>;
+
+
 export default class Header extends Component {
   state = {
   	[style.dropMenuXs]: false,
@@ -63,17 +71,17 @@ export default class Header extends Component {
 					</div>
 					
 					<nav class={`show-xl ${style.hiddenLg} ${style.hiddenMd} ${style.hiddenSm} ${style.hiddenXs}`}>
-						<Link activeClassName={style.active} href="/"><Text text="Home"/></Link>
-						<Link activeClassName={style.active} href="/profile"><Text text="Contact us"/></Link>
-						<Link activeClassName={style.active} href="/profile/john1"><Text text="Special Promotion 1"/></Link>
-						<Link activeClassName={style.active} href="/profile/john2"><Text text="Special Promotion 2"/></Link>
-						<Link activeClassName={style.active} href="/profile/john3"><Text text="Special Promotion 3"/></Link>
-						<Link activeClassName={style.active} href="/profile/john4"><Text text="Special Promotion 4"/></Link>
+						{linkHome}
+						{linkContactUs}
+						{linkP1}
+						{linkP2}
+						{linkP3}
+						{linkP4}
 					</nav>
 					
 					<nav class={`show-lg-md-sm ${style.hiddenXl} ${style.hiddenXs}`}>
-						<Link activeClassName={style.active} href="/"><Text text="Home"/></Link>
-						<Link activeClassName={style.active} href="/profile"><Text text="Contact us"/></Link>
+            {linkHome}
+            {linkContactUs}
 						
 						<a href="javascript:void(0)" onClick={this.btnNavbarClick(style.dropMenuSm)}>
 							<span>Special Promotions</span>
@@ -98,21 +106,21 @@ export default class Header extends Component {
 					
 					<nav class={`${style.dropMenu} ${style.dropMenuXs} ${dropMenuXs_ShowClass}`}>
 						<div class={`${style.dropMenuInner}`}>
-							<Link activeClassName={style.active} href="/"><Text text="Home"/></Link>
-							<Link activeClassName={style.active} href="/profile"><Text text="Contact us"/></Link>
-							<Link activeClassName={style.active} href="/profile/john1"><Text text="Special Promotion 1"/></Link>
-							<Link activeClassName={style.active} href="/profile/john2"><Text text="Special Promotion 2"/></Link>
-							<Link activeClassName={style.active} href="/profile/john3"><Text text="Special Promotion 3"/></Link>
-							<Link activeClassName={style.active} href="/profile/john4"><Text text="Special Promotion 4"/></Link>
+              {linkHome}
+              {linkContactUs}
+              {linkP1}
+              {linkP2}
+              {linkP3}
+              {linkP4}
 						</div>
 					</nav>
 					
 					<nav class={`${style.dropMenu} ${style.dropMenuSm} ${dropMenuSm_ShowClass}`}>
 						<div class={`${style.dropMenuInner}`}>
-							<Link activeClassName={style.active} href="/profile/john1"><Text text="Special Promotion 1"/></Link>
-							<Link activeClassName={style.active} href="/profile/john2"><Text text="Special Promotion 2"/></Link>
-							<Link activeClassName={style.active} href="/profile/john3"><Text text="Special Promotion 3"/></Link>
-							<Link activeClassName={style.active} href="/profile/john4"><Text text="Special Promotion 4"/></Link>
+              {linkP1}
+              {linkP2}
+              {linkP3}
+              {linkP4}
 						</div>
 					</nav>
 					
