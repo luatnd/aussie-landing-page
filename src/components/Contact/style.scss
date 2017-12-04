@@ -229,6 +229,35 @@
 
 //@media (min-width: 768px)
 @include media-breakpoint-up(md) {
+  .content {
+    padding-top: 80px;
+    .info {
+      width: 80%;
+      & > div { width: 400px; }
+    }
+    .formC { width: 80%; padding-top: 60px;}
+  }
+}
+
+//@media (min-width: 992px)
+@include media-breakpoint-up(lg) {
+  .contactC {
+    height: 695px;
+    padding: 0 20px;
+  }
+  .content {
+    padding-top: 173px;
+
+    .info {
+      width: 450px;
+      & > div { width: 325px; }
+    }
+    .formC { width: 450px; padding-top: 0;}
+  }
+}
+
+//@media (min-width: 1200px)
+@include media-breakpoint-up(xl) {
   .contactC {
     height: 695px;
     padding: 0 20px;
@@ -243,9 +272,3 @@
     .formC { width: 533px; padding-top: 0;}
   }
 }
-
-//@media (min-width: 992px)
-@include media-breakpoint-up(lg) { }
-
-//@media (min-width: 1200px)
-@include media-breakpoint-up(xl) { }
