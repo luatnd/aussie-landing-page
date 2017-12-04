@@ -1,5 +1,179 @@
+@import '../../../style/bootstrap/scss/functions';
+@import '../../../style/bootstrap/scss/variables';
+@import '../../../style/bootstrap/scss/mixins';
+@import "../../../style/bootstrap/scss/bootstrap-grid-custom";
+@import "../../../style/config";
+
+
+// Migrate from //@import '../../../style/bootstrap/scss/buttons';
+.btn {
+  display: inline-block;
+  font-weight: $btn-font-weight;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: $input-btn-border-width solid transparent;
+  @include button-size($input-btn-padding-y, $input-btn-padding-x, $font-size-base, $input-btn-line-height, $btn-border-radius);
+  @include transition($btn-transition);
+
+  // Share hover and focus styles
+  @include hover-focus {
+    text-decoration: none;
+  }
+  &:focus,
+  &.focus {
+    outline: 0;
+    box-shadow: $input-btn-focus-box-shadow;
+  }
+
+  // Disabled comes first so active can properly restyle
+  &.disabled,
+  &:disabled {
+    opacity: .65;
+    @include box-shadow(none);
+  }
+
+  &:not([disabled]):not(.disabled):active,
+  &:not([disabled]):not(.disabled).active {
+    background-image: none;
+    @include box-shadow($input-btn-focus-box-shadow, $btn-active-box-shadow);
+  }
+}
+
+.btn-danger {
+  @include button-variant($danger, $danger);
+}
+
 
 
 .promoC {
 
+  padding: 60px 85px;
+
+
+  .promoInner{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    .info {}
+    .questions {}
+  }
+
+  box-sizing: border-box;
+  * { box-sizing: border-box; }
+}
+
+
+.info {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  h1 {
+    margin: 0;
+    @include myText__fw_fs_lh_c(bold, 75px, 75px, $whiteE);
+
+    margin-top: 17px;
+  }
+  p:first-of-type {
+    margin: 0;
+    @include myText__fw_fs_lh_c(bold, 21px, 30px, $whiteE);
+
+    margin-top: 9px;
+  }
+  p.big {
+    margin: 0;
+    @include myText__fw_fs_lh_c(bold, 25px, 30px, $myYellow);
+
+    margin-top: 17px;
+    text-transform: uppercase;
+  }
+
+  .handC {
+    position: relative;
+
+    border: 3px solid crimson;
+    min-width: 600px;
+    min-height: 300px;
+
+    .imgC {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+
+      min-width: 300px;
+      min-height: 300px;
+      border: 3px solid green;
+    }
+    .handContent{
+      position: absolute;
+      right: 0;
+      bottom: 0px;
+      width: 200px;
+      height: 200px;
+      background: rgba(123,124,53, 0.8);
+    }
+  }
+}
+
+.questions {
+  margin-top: 50px;
+
+  width: 500px;
+  height: 352px;
+  border-radius: 6px;
+  padding:30px 70px 58px;
+  background: white;
+
+
+  .qGroup{
+    .question{
+      @include myText__fw_fs_lh_c(regular, 18px, 23px, $myBlack8);
+
+      margin: 0;
+      height: 57px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .ansList{
+      height: 216px;
+
+      .ansItem{
+        // Overwrite default btn
+        margin: 7px 0 6px 0;
+        padding: 0;
+        width: 100%;
+        height: 40px;
+        border-radius: 3px;
+        font-weight: 900; // Proxima Nova Bold
+        font-size: 15px;
+        line-height: 40px;
+        color: $whitePure;
+        text-transform: uppercase;
+        text-decoration: none;
+        background-color: $myOrange;
+        border-color: $myOrange;
+        outline: none;
+
+        &:hover {
+          background-color: #e08349;
+          border-color: #e08349;
+        }
+
+        &:focus {
+          box-shadow: 0 0 0 0.2rem rgba(253, 160, 71, 0.5);
+        }
+      }
+    }
+  }
 }
