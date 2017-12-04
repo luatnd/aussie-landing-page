@@ -36,9 +36,9 @@ export default class Contact extends Component {
               <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</p>
   
               <div>
-                <p class={`${style.infoItem}`} data-key="address"><img src={icoMapPicker} alt="A"/> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed</p>
-                <p class={`${style.infoItem}`} data-key="phone"><img src={icoPhone} alt="T"/> 732-939-0444</p>
-                <p class={`${style.infoItem}`} data-key="email"><img src={icoEmail} alt="E"/> info@aussiefreebieguru.com</p>
+                <div class={`${style.infoItem}`} data-key="address"><img src={icoMapPicker} alt="A"/> <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed</p></div>
+                <div class={`${style.infoItem}`} data-key="phone"><img src={icoPhone} alt="T"/> <p>732-939-0444</p></div>
+                <div class={`${style.infoItem}`} data-key="email"><img src={icoEmail} alt="E"/> <p>info@aussiefreebieguru.com</p></div>
               </div>
             </div>
           </div>
