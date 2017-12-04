@@ -51,12 +51,12 @@
   //margin: 18px;
   padding: 0;
   width: 200px;
-  height: 51px;
+  height: 54px;
   //background: $orange;
   border-radius: 3px;
   font-weight: 900; // Proxima Nova Bold
-  font-size: 18px;
-  line-height: 52px;
+  font-size: 16px;
+  line-height: 54px;
   color: $whitePure;
   text-transform: uppercase;
   text-decoration: none;
@@ -153,10 +153,11 @@
     &::placeholder { color: $whiteE4 }
   }
   input{
-    height: 50px;
+    height: 51px;
   }
   textarea{
-    height: 128px;
+    height: 131px;
+    margin-top: 14px;
   }
 }
 
@@ -173,4 +174,4 @@
   }
 }
 
-.sm{ margin-top: 56px; }
+.sm{ margin-top: 36px; }
