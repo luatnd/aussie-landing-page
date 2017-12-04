@@ -1,7 +1,176 @@
+@import '../../style/bootstrap/scss/functions';
+@import '../../style/bootstrap/scss/variables';
+@import '../../style/bootstrap/scss/mixins';
+@import "../../style/bootstrap/scss/bootstrap-grid-custom";
+@import "../../style/config";
 
-.container {
-	min-height: 100%;
-	width: 100%;
 
-	background: yellow;
+
+// Migrate from //@import '../../../style/bootstrap/scss/buttons';
+.btn {
+  display: inline-block;
+  font-weight: $btn-font-weight;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: $input-btn-border-width solid transparent;
+  @include button-size($input-btn-padding-y, $input-btn-padding-x, $font-size-base, $input-btn-line-height, $btn-border-radius);
+  @include transition($btn-transition);
+
+  // Share hover and focus styles
+  @include hover-focus {
+    text-decoration: none;
+  }
+  &:focus,
+  &.focus {
+    outline: 0;
+    box-shadow: $input-btn-focus-box-shadow;
+  }
+
+  // Disabled comes first so active can properly restyle
+  &.disabled,
+  &:disabled {
+    opacity: .65;
+    @include box-shadow(none);
+  }
+
+  &:not([disabled]):not(.disabled):active,
+  &:not([disabled]):not(.disabled).active {
+    background-image: none;
+    @include box-shadow($input-btn-focus-box-shadow, $btn-active-box-shadow);
+  }
 }
+
+.btn-danger {
+  @include button-variant($danger, $danger);
+}
+
+// Overwrite default
+.btn-danger {
+  //margin: 18px;
+  padding: 0;
+  width: 200px;
+  height: 51px;
+  //background: $orange;
+  border-radius: 3px;
+  font-weight: 900; // Proxima Nova Bold
+  font-size: 18px;
+  line-height: 52px;
+  color: $whitePure;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: $myOrange;
+  border-color: $myOrange;
+
+  &:hover {
+    background-color: #e08349;
+    border-color: #e08349;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(253, 160, 71, 0.5);
+  }
+}
+
+
+
+.contactC {
+  margin-top: 143px;
+
+  position: relative;
+  width: 100%;
+  height: 695px;
+  background: transparent;
+
+  color: $whitePure;
+
+  * { box-sizing: border-box; }
+}
+
+.bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: 0;
+}
+
+.mask {
+  position: absolute;
+  z-index: 3;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: rgba(0, 30, 51, 0.65);
+}
+
+.content {
+  position: relative;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+
+  .info {
+    width: 605px;
+    //background: grey;
+  }
+  .formC {
+    width: 533px;
+    //background: darkcyan;
+  }
+}
+
+.infoItem{
+  margin-top: 36px;
+
+  &[data-key="address"]{@include myText__fw_fs_lh_c(light, 18px, 29px, $whitePure)}
+  &[data-key="phone"]{@include myText__fw_fs_lh_c(bold, 18px, 21px, $whitePure)}
+  &[data-key="email"]{@include myText__fw_fs_lh_c(semibold, 18px, 21px, $whitePure)}
+
+  span {
+    margin-right: 32px;
+  }
+}
+
+
+.formCtrl{
+  display: block;
+
+  $padding-head: 18px;
+  $padding-side: 18px;
+  input, textarea {
+    @include myText__fw_fs_lh_c(light, 15px, 31px, $whiteE4);
+
+    width: 100%;
+    margin:13px 0;
+    padding: $padding-head $padding-side;
+    border: 1px solid $whiteE4;
+    background: transparent;
+
+    resize: none;
+
+    &::placeholder { color: $whiteE4 }
+  }
+  input{
+    height: 50px;
+  }
+  textarea{
+    height: 128px;
+  }
+}
+
+.formCtrl__inline{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  input{
+    width: 50%;
+    margin-left: 18px;
+    &:first-child{ margin-left: 0; }
+  }
+}
+
+.sm{ margin-top: 56px; }
