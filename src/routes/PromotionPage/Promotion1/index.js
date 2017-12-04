@@ -24,12 +24,17 @@ export default class PromotionPage extends Component {
             
             <div className={style.handC}>
               <div className={style.imgC}>
-                <IronImage srcPreload={imgHandPreview} srcLoaded={imgHandHd}/>
+                <IronImage
+                  srcPreload={imgHandPreview}
+                  srcLoaded={imgHandHd}
+                  cssOption="background-size: 100% auto;"
+                  hidePreview={true}
+                />
               </div>
               
-              <div className={style.handContent}>
-                <p>{lorem}</p>
-              </div>
+              {/*<div className={style.handContent}>*/}
+                {/*<p>{lorem}</p>*/}
+              {/*</div>*/}
             </div>
             
           </div>

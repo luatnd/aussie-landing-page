@@ -48,9 +48,10 @@
 
 
 .promoC {
+  position: relative; // For some absolute element: Hand, hand card
 
   padding: 60px 0;
-  width: 100%;
+  width: 100%; height: 100%;
   max-width: map-get($grid-breakpoints, xl);
   margin: 0 auto;
 
@@ -99,20 +100,18 @@
   }
 
   .handC {
-    position: relative;
-
-    border: 3px solid crimson;
-    min-width: 600px;
-    min-height: 300px;
+    // position: relative; // --> Change to .promoC
 
     .imgC {
       position: absolute;
-      left: 0;
-      bottom: 0;
-
-      min-width: 300px;
-      min-height: 300px;
-      border: 3px solid green;
+      //left: -115px;
+      //bottom: -199px;
+      //width: 706px;
+      //height: 592px;
+      left: -124px;
+      bottom: -173px;
+      width: 715px;
+      height: 546px;
     }
     .handContent{
       position: absolute;

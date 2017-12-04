@@ -13,6 +13,8 @@ const documentReadStatus = {
  * Usage:
  *  srcPreload: Can be image url or image data or sth can be display
  *  srcLoaded: Must be a image url to fetch, do not use image data
+ *  cssOption: Additional css option to img. Support only the HD image
+ *  hidePreview: Can hide preview image, only show the image after loaded
  *
  * <IronImage srcPreload={preloadImg} srcLoaded={'./assets/images/node-hd.jpeg'} />
  * <IronImage srcPreload={'./assets/images/node.jpg'} srcLoaded={'./assets/images/node-hd.jpeg'} />
@@ -76,7 +78,9 @@ export default class IronImage extends Component {
    * Show the HD img to the UI
    */
   showHD = () => {
-    this.ironImageHd.setAttribute('style', `background-image: url('${this.props.srcLoaded}')`);
+    const {cssOption = ''} = this.props;
+    
+    this.ironImageHd.setAttribute('style', `background-image: url('${this.props.srcLoaded}'); ${cssOption}`);
     this.ironImageHd.classList.add(style.loaded);
     this.ironImagePre.classList.add(style.loaded);
   }
