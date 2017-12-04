@@ -86,6 +86,8 @@ export default class IronImage extends Component {
   }
   
   render() {
+    const {hidePreview = false} = this.props;
+    
     return (
       
       <div class={style.container}>
@@ -94,11 +96,12 @@ export default class IronImage extends Component {
           ref={ele => this.ironImageHd = ele}
           style=""
         />
-        <div
+        {!hidePreview && <div
           class={style.preloadImg}
           ref={ele => this.ironImagePre = ele}
           style={{backgroundImage: `url('${this.props.srcPreload}')`}}
         />
+        }
       </div>
     
     )
