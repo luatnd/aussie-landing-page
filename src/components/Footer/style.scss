@@ -1,3 +1,4 @@
+@import "../../style/bootstrap/scss/bootstrap-grid-custom";
 @import "../../style/config";
 
 .footerC{
@@ -5,7 +6,7 @@
   position: relative;
   width: 100%;
   height: auto;
-  padding: 34px 20px 60px;
+  padding: 34px 20px 29px;
   color: $whitePure;
   background: $myBlack2;
 
@@ -19,7 +20,7 @@
 .fInner{
   max-width: 1130px;
   margin: 0 auto;
-  padding-right: 78px;
+  padding-right: 0;
 }
 
 .dropItem {
@@ -42,17 +43,18 @@
     }
     span{
       cursor: pointer;
+      margin-top: 25px;
     }
   }
   .content{
     @include myText__fw_fs_lh_c(light, 15px, 24px, $whiteB);
-    text-align: justify;
 
     overflow: hidden;
     transition: height 0.5s, opacity 0.5s;
 
     // Increase size but must decrease it when collapse
-    padding: 0 42px 0 56px;
+    padding: 0 10px 0 10px;
+    text-align: left;
   }
 }
 
@@ -93,14 +95,17 @@
 }
 
 .footInfo {
+  margin-top: 86px;
+
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 
   p{
-    @include myText__fw_fs_lh_c(bold, 18px, 22px, $whiteB);
-    b { @include myText__fw_fs_lh_c(light, 18px, 22px, $whiteB); }
+    @include myText__fw_fs_lh_c(light, 18px, 22px, $whiteB);
+    b { @include myText__fw_fs_lh_c(bold, 18px, 22px, $whiteB); }
   }
 
   .iconList{
@@ -108,6 +113,8 @@
     flex-flow: row wrap;
     justify-content: flex-end;
     align-items: flex-start;
+
+    a{ margin-left: 21px; }
   }
 }
 
@@ -118,3 +125,35 @@
 
 
 .m0{ margin: 0;}
+
+
+
+// For xs screen, no @media query
+@include media-breakpoint-up(xs) {
+
+}
+
+//@media (min-width: 576px)
+@include media-breakpoint-up(sm) {
+  .dropItem .content {
+    padding-left: 56px;
+    padding-right: 42px;
+    text-align: justify;
+  }
+  .footInfo{
+    justify-content: space-between;
+  }
+}
+
+//@media (min-width: 768px)
+@include media-breakpoint-up(md) { }
+
+//@media (min-width: 992px)
+@include media-breakpoint-up(lg) { }
+
+//@media (min-width: 1200px)
+@include media-breakpoint-up(xl) {
+  .fInner{
+    padding-right: 78px;
+  }
+}
