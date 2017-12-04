@@ -24,7 +24,7 @@ export default class Contact extends Component {
         
         
         <div class={style.bg}>
-            <IronImage srcPreload={preloadImg} srcLoaded={'./assets/images/aussiefreebieguru-1.jpg'}/>
+            <IronImage srcPreload={preloadImg} srcLoaded={'/assets/images/aussiefreebieguru-1.jpg'}/>
             <div class={style.mask}/>
         </div>
         
