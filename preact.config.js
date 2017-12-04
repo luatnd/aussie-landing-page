@@ -18,6 +18,8 @@ export default function (config, env, helpers) {
     }
   }
   
+  //allowHtmlWebpackPlugin_preload(config, env, helpers);
+  
   
   //console.log("config: ", JSON.stringify(config));
   //console.log("config.plugins: ", config.plugins);
@@ -63,5 +65,21 @@ function changeCssLoader_Class_Prod(config, env, helpers) {
     console.log('Can not find CSS loader configuration');
 
     process.exit(1);
+  }
+}
+
+function change_publicPath_Prod(config, env, helpers) {
+  const {plugin} = helpers.getPluginsByName(config, 'HtmlWebpackPlugin')[0] || {};
+  if (plugin) {
+    plugin.options.constant = require(`./config/constant.json`); // returns {"CONSTANT_NAME": "toto"}
+    helpers.setHtmlTemplate(config, 'index.tpl.html');
+  }
+  config.output.publicPath = '/';
+}
+
+function allowHtmlWebpackPlugin_preload(config, env, helpers) {
+  const {plugin} = helpers.getPluginsByName(config, 'HtmlWebpackPlugin')[0] || {};
+  if (plugin) {
+    plugin.options.preload = true;
   }
 }
