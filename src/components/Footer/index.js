@@ -7,6 +7,7 @@ import icoIn from '../../assets/icons/linkedIn.png';
 import icoYt from '../../assets/icons/youtube.png';
 import icoArrowDown from '../../assets/icons/arrow-down.png';
 import icoArrowUp from '../../assets/icons/arrow-up.png';
+import imgLogoPink from '../../assets/images/logo-pink.png';
 
 const lorem = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostr';
 
@@ -17,7 +18,13 @@ export default class Footer extends Component {
 				<div class={style.fInner}>
 					
 					<DropContent title="About Us">
-						aboutUs content here
+						<div class={style.aboutUs}>
+							
+							<img src={imgLogoPink} alt="aussie logo pink"/>
+							
+							<p>{lorem}</p>
+							
+						</div>
 					</DropContent>
 					
 					<DropContent title="Disclaimer" collapsed={false}>
@@ -25,11 +32,11 @@ export default class Footer extends Component {
 					</DropContent>
 					
 					<DropContent title="Terms">
-						<p>{lorem}</p>
+						<p class={style.m0}>{lorem}</p>
 					</DropContent>
 					
 					<DropContent title="Privacy Policy">
-						<p>{lorem}</p>
+						<p class={style.m0}>{lorem}</p>
 					</DropContent>
 					
 					<div class={style.footInfo}>

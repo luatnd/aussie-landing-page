@@ -120,7 +120,18 @@
 
 // Content format for about us
 .aboutUs{
+  margin: 0; padding: 0;
 
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+
+  img{ width: 277px; height: 167px;}
+  p{
+    margin-top: 60px;
+    @include myText__fw_fs_lh_c(light, 15px, 26px, $whiteB);
+  }
 }
 
 
@@ -149,7 +160,18 @@
 @include media-breakpoint-up(md) { }
 
 //@media (min-width: 992px)
-@include media-breakpoint-up(lg) { }
+@include media-breakpoint-up(lg) {
+  .aboutUs {justify-content: space-between;}
+  .aboutUs p{
+    width: 570px;
+    margin-top: 15px;
+    @include text-ellipsis(5, 15px, 26px, 5px);
+  }
+}
+
+@media (min-width:992px) and (max-width: 1030px) {
+  .aboutUs p{ width: 500px;}
+}
 
 //@media (min-width: 1200px)
 @include media-breakpoint-up(xl) {

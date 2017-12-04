@@ -70,3 +70,31 @@ myText__fw_fs_lh_c(light, 16px, 20px, #999)
   line-height: $lh;
   color: $color;
 }
+
+
+/**
+calcParaHeight = (line) => {
+	const fs = 14;
+	const lh = 1.38;
+	const offset = 5;
+	const paragraphHeight = line*fs + (line-1)*lh + offset;
+
+
+   //fz:14px * line:1  + (1-1) * 14px*line-height:1.38 + 5px offset
+
+	console.log(paragraphHeight);
+}
+*/
+@mixin text-ellipsis ($line, $fs, $lh, $offset) {
+  /* Overflow ellipse */
+  max-width: 100%;
+  height: auto;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+
+  -webkit-line-clamp: $line;
+  max-height: $line*$fs + ($line - 1) * $lh + $offset;
+}
