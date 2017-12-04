@@ -6,6 +6,10 @@ import preloadImg from '../../assets/images/aussiefreebieguru-1-xs-80.jpg';
 import style from './style.scss';
 //import common from '../../style/common.scss';
 
+import icoMapPicker from '../../assets/icons/map-picker.png';
+import icoPhone from '../../assets/icons/phone.png';
+import icoEmail from '../../assets/icons/email.png';
+
 
 export default class Contact extends Component {
   handleFormSubmit = (e) => {
@@ -27,15 +31,16 @@ export default class Contact extends Component {
         <div class={style.content}>
     
           <div class={style.info}>
-            <h4>Contact Us</h4>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</p>
-            
             <div>
-              <p class={`${style.infoItem}`} data-key="address"><span>A</span> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed</p>
-              <p class={`${style.infoItem}`} data-key="phone"><span>T</span> 732-939-0444</p>
-              <p class={`${style.infoItem}`} data-key="email"><span>E</span> info@aussiefreebieguru.com</p>
+              <h4>Contact Us</h4>
+              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod</p>
+  
+              <div>
+                <p class={`${style.infoItem}`} data-key="address"><img src={icoMapPicker} alt="A"/> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed</p>
+                <p class={`${style.infoItem}`} data-key="phone"><img src={icoPhone} alt="T"/> 732-939-0444</p>
+                <p class={`${style.infoItem}`} data-key="email"><img src={icoEmail} alt="E"/> info@aussiefreebieguru.com</p>
+              </div>
             </div>
-            
           </div>
           <div class={style.formC}>
             <form action="" method="post" onSubmit={this.handleFormSubmit}>

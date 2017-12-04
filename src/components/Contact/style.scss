@@ -106,10 +106,11 @@
 .content {
   position: relative;
 
+  padding-top: 173px;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 
   .info {
     width: 605px;
@@ -121,30 +122,62 @@
   }
 }
 
-.infoItem{
-  margin-top: 36px;
+.info {
+  width: 605px;
 
-  &[data-key="address"]{@include myText__fw_fs_lh_c(light, 18px, 29px, $whitePure)}
-  &[data-key="phone"]{@include myText__fw_fs_lh_c(bold, 18px, 21px, $whitePure)}
-  &[data-key="email"]{@include myText__fw_fs_lh_c(semibold, 18px, 21px, $whitePure)}
+  & > div {
+    width: 325px;
+  }
 
-  span {
-    margin-right: 32px;
+  h4{
+    @include myText__fw_fs_lh_c(bold, 45px, 45px, $whitePure);
+    margin-bottom: 0;
+    margin-top: 4px;
+  }
+  p{
+    @include myText__fw_fs_lh_c(light,15px, 21px, $whitePure);
+    margin-top: 11px;
+  }
+
+  .infoItem{
+    margin-top: 36px;
+
+    img {
+      margin-right: 28px;
+    }
+
+    &[data-key="address"]{
+      @include myText__fw_fs_lh_c(light, 18px, 29px, $whitePure);
+      line-height: 30px;
+      margin-top: 45px;
+      img { margin-bottom: -10px; }
+    }
+    &[data-key="phone"]{
+      @include myText__fw_fs_lh_c(bold, 18px, 21px, $whitePure);
+      margin-top: 34px;
+      img { margin-bottom: -2px; }
+    }
+    &[data-key="email"]{
+      @include myText__fw_fs_lh_c(semibold, 18px, 21px, $whitePure);
+      margin-top: 38px;
+      img { margin-bottom: -3px; }
+    }
   }
 }
+
 
 
 .formCtrl{
   display: block;
 
-  $padding-head: 18px;
-  $padding-side: 18px;
+  $padding-head: 16px;
+  $padding-side: 16px;
   input, textarea {
     @include myText__fw_fs_lh_c(light, 15px, 31px, $whiteE4);
 
     width: 100%;
     margin:13px 0;
-    padding: $padding-head $padding-side;
+    padding: $padding-head - 2px $padding-side $padding-head $padding-side;
     border: 1px solid $whiteE4;
     background: transparent;
 
@@ -158,6 +191,7 @@
   textarea{
     height: 131px;
     margin-top: 14px;
+    padding-top: 7px;
   }
 }
 
