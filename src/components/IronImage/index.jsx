@@ -78,11 +78,13 @@ export default class IronImage extends Component {
    * Show the HD img to the UI
    */
   showHD = () => {
-    const {cssOption = ''} = this.props;
+    const {cssOption = '', hidePreview = false} = this.props;
     
     this.ironImageHd.setAttribute('style', `background-image: url('${this.props.srcLoaded}'); ${cssOption}`);
     this.ironImageHd.classList.add(style.loaded);
-    this.ironImagePre.classList.add(style.loaded);
+    if (!hidePreview) {
+      this.ironImagePre.classList.add(style.loaded);
+    }
   }
   
   render() {
