@@ -1,7 +1,120 @@
-.container {
+@import "../../style/config";
+
+.footerC{
+  margin-top: 0;
+  position: relative;
   width: 100%;
-  margin: 0;
-  padding: 0;
-  background: black;
-  color:white;
+  height: auto;
+  padding: 34px 20px 60px;
+  color: $whitePure;
+  background: $myBlack2;
+
+  border-top: 1px solid rgb(86, 100, 110);
+
+  box-sizing: border-box;
+  * { box-sizing: border-box; }
 }
+
+
+.fInner{
+  max-width: 1130px;
+  margin: 0 auto;
+  padding-right: 78px;
+}
+
+.dropItem {
+  margin: 0;
+  padding: 0 0 18px 0;
+  //padding: 0 0 4px 0;
+
+  border-bottom: 1px solid #666;
+
+  .bar{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    p{
+      @include myText__fw_fs_lh_c(light, 21px, 25px, $whitePure);
+
+      margin-top: 39px;
+    }
+    span{
+      cursor: pointer;
+    }
+  }
+  .content{
+    @include myText__fw_fs_lh_c(light, 15px, 24px, $whiteB);
+    text-align: justify;
+
+    overflow: hidden;
+    transition: height 0.5s, opacity 0.5s;
+
+    // Increase size but must decrease it when collapse
+    padding: 0 42px 0 56px;
+  }
+}
+
+.dropItem .content{
+  height: auto;
+  opacity: 1;
+
+  // Increase size but must decrease it when collapse
+  padding-top: 13px;
+  padding-bottom: 18px;
+  margin-top: 0;
+  margin-bottom: 0;
+
+}
+.dropItem .content.collapsed{
+  height: 0;
+  opacity: 0;
+
+  // Increase size but must decrease it when collapse
+  margin-top: -13px;
+  margin-bottom: -18px;
+}
+
+.dropItem .content.being{
+  // open --> collapsed
+  height: auto;
+  opacity: 0;
+
+  // Increase size but must decrease it when collapse
+  margin-top: 0;
+  margin-bottom: 0;
+
+}
+.dropItem .content.being.collapsed{
+  // collapsed --> open
+  height: auto;
+  opacity: 1;
+}
+
+.footInfo {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  p{
+    @include myText__fw_fs_lh_c(bold, 18px, 22px, $whiteB);
+    b { @include myText__fw_fs_lh_c(light, 18px, 22px, $whiteB); }
+  }
+
+  .iconList{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+}
+
+// Content format for about us
+.aboutUs{
+
+}
+
+
+.m0{ margin: 0;}
