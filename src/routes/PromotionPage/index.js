@@ -35,8 +35,8 @@ export default class PromotionPage extends Component {
 function getPromotionComp(promotionId) {
   switch (promotionId) {
     case 'super-market-sale':
-      return <Promotion1/>;
+      return <Promotion1 tmpText={"SUPERMARKET"}/>;
     default:
-      return <Promotion1/>;
+      return <Promotion1 tmpText={promotionId}/>;
   }
 }

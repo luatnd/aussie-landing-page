@@ -11,14 +11,16 @@ const lorem = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed dia
 
 
 export default class PromotionPage extends Component {
-  render() {
+  render(props) {
+    const {tmpText} = props;
+    
     return (
       <div class={style.promoC}>
         <div class={style.promoInner}>
           
           <div class={style.info}>
             
-            <h1>SUPERMARKET</h1>
+            <h1>{tmpText}</h1>
             <p>Published on 28 November 2017</p>
             <p class={style.big}>WIN A %500 SUPERMARKET GIFT CARD</p>
             

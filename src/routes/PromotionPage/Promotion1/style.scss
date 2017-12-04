@@ -50,7 +50,7 @@
 .promoC {
   position: relative; // For some absolute element: Hand, hand card
 
-  padding: 60px 0;
+  padding: 60px 15px;
   width: 100%; height: 100%;
   max-width: map-get($grid-breakpoints, xl);
   margin: 0 auto;
@@ -81,20 +81,17 @@
 
   h1 {
     margin: 0;
-    @include myText__fw_fs_lh_c(bold, 75px, 75px, $whiteE);
+    //@include myText__fw_fs_lh_c(bold, 36px, 75px, $whiteE); // Move to responsive section
 
     margin-top: 17px;
+    text-transform: uppercase;
   }
   p:first-of-type {
     margin: 0;
-    @include myText__fw_fs_lh_c(bold, 21px, 30px, $whiteE);
-
     margin-top: 9px;
   }
   p.big {
     margin: 0;
-    @include myText__fw_fs_lh_c(bold, 25px, 30px, $myYellow);
-
     margin-top: 17px;
     text-transform: uppercase;
   }
@@ -104,14 +101,12 @@
 
     .imgC {
       position: absolute;
-      //left: -115px;
-      //bottom: -199px;
-      //width: 706px;
-      //height: 592px;
-      left: -124px;
-      bottom: -173px;
-      width: 715px;
-      height: 546px;
+
+      // Move to responsive section
+      //left: -124px;
+      //bottom: -173px;
+      //width: 715px;
+      //height: 546px;
     }
     .handContent{
       position: absolute;
@@ -126,12 +121,7 @@
 
 .questions {
   margin-top: 59px;
-  margin-right: 35px;
-
-  width: 500px;
-  height: 352px;
   border-radius: 6px;
-  padding:30px 70px 58px;
   background: white;
 
 
@@ -177,5 +167,123 @@
         }
       }
     }
+  }
+}
+
+
+
+// For xs screen, no @media query
+@include media-breakpoint-up(xs) {
+  .info {
+    align-items: center;
+    width: 100%;
+
+    h1 {
+      @include myText__fw_fs_lh_c(bold, 36px, 75px, $whiteE);
+    }
+    p:first-of-type {
+      @include myText__fw_fs_lh_c(bold, 16px, 30px, $whiteE);
+    }
+    p.big {
+      @include myText__fw_fs_lh_c(bold, 15px, 30px, $myYellow);
+    }
+    .handC{
+      display: none;
+    }
+  }
+  .questions {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    padding: 15px;
+  }
+}
+
+//@media (min-width: 576px)
+@include media-breakpoint-up(sm) {
+  .info {
+    h1{
+      @include myText__fw_fs_lh_c(bold, 66px, 75px, $whiteE);
+    }
+  }
+}
+
+//@media (min-width: 768px)
+@include media-breakpoint-up(md) {
+
+}
+
+//@media (min-width: 992px)
+@include media-breakpoint-up(lg) {
+  .info {
+    align-items: flex-start;
+    width: auto;
+
+    h1{
+      @include myText__fw_fs_lh_c(bold, 50px, 75px, $whiteE);
+    }
+    p:first-of-type {
+      @include myText__fw_fs_lh_c(bold, 21px, 30px, $whiteE);
+    }
+    p.big {
+      @include myText__fw_fs_lh_c(bold, 21px, 30px, $myYellow);
+    }
+    .handC{
+      display: block;
+
+      .imgC{
+        left: -124px;
+        bottom: -173px;
+        width: 525px;
+        height: 625px;
+      }
+    }
+  }
+  .questions {
+    margin: 0 35px auto auto;
+    width: 470px;
+    height: 352px;
+    padding:30px 70px 58px;
+  }
+}
+
+//@media (min-width: 1200px)
+@include media-breakpoint-up(xl) {
+  .info {
+    align-items: flex-start;
+    width: auto;
+
+    h1{
+      @include myText__fw_fs_lh_c(bold, 75px, 75px, $whiteE);
+    }
+    p:first-of-type {
+      @include myText__fw_fs_lh_c(bold, 21px, 30px, $whiteE);
+    }
+    p.big {
+      @include myText__fw_fs_lh_c(bold, 25px, 30px, $myYellow);
+    }
+    .handC{
+      display: block;
+
+      .imgC{
+        left: -124px;
+        bottom: -173px;
+        width: 715px;
+        height: 546px;
+      }
+    }
+  }
+  .questions {
+    margin: 0 35px auto auto;
+    width: 500px;
+    height: 352px;
+    padding:30px 70px 58px;
+  }
+}
+
+@media (min-width: 1250px) {
+  .promoC{
+    padding: 60px 0;
   }
 }
