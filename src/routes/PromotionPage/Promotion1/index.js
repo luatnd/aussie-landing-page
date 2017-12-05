@@ -55,14 +55,15 @@ export default class PromotionPage extends Component {
 class QuestionGroup extends Component {
   render(props) {
     const {current:currentQuestion = 1} = props;
+    const itemClass = `${style.btn} ${style['btn-danger']} ${style.ansItem}`;
     
     return <div className={style.qGroup} data-key={1}>
       <p className={style.question}>Question {currentQuestion} of 4 : What is your age group?</p>
       <div className={style.ansList}>
-        <button className={style.ansItem} value={1.5}>1.5 KW</button>
-        <button className={style.ansItem} value={2}>2 KW</button>
-        <button className={style.ansItem} value={3}>3 KW</button>
-        <button className={style.ansItem} value={4}>4 KW</button>
+        <button className={itemClass} value={1.5}>1.5 KW</button>
+        <button className={itemClass} value={2}>2 KW</button>
+        <button className={itemClass} value={3}>3 KW</button>
+        <button className={itemClass} value={4}>4 KW</button>
       </div>
     </div>
   }
