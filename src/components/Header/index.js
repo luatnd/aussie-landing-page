@@ -5,14 +5,6 @@ import style from './style.scss';
 import logo from '../../assets/images/logo-white.png'
 
 
-const linkHome = <Link activeClassName={style.active} href="/"><Text text="Home"/></Link>;
-const linkContactUs = <Link activeClassName={style.active} href="/contact-us"><Text text="Contact us"/></Link>;
-const linkP1 = <Link activeClassName={style.active} href="/promotion/super-market-sale"><Text text="Special Promotion 1"/></Link>;
-const linkP2 = <Link activeClassName={style.active} href="/promotion/promotion-2"><Text text="Special Promotion 2"/></Link>;
-const linkP3 = <Link activeClassName={style.active} href="/promotion/promotion-3"><Text text="Special Promotion 3"/></Link>;
-const linkP4 = <Link activeClassName={style.active} href="/promotion/promotion-4"><Text text="Special Promotion 4"/></Link>;
-
-
 export default class Header extends Component {
   state = {
   	[style.dropMenuXs]: false,
@@ -36,20 +28,39 @@ export default class Header extends Component {
     }
 	}
   
+  handleMenuItemClick = () => {
+    this.hideAllMenu();
+    this.scrollToTop();
+	}
+  
   handleDocClick = (e) => {
     if (window.Element.prototype.closest) {
-      const clickedOnMenu = e.target.closest(`.${style.fixedMenuC}`);
+      const fixedMenuC_Ele = e.target.closest(`.${style.fixedMenuC}`);
       
-      if (clickedOnMenu === null) {
+      if (fixedMenuC_Ele === null) {
         // Mean click outside menu --> hide drop menu
-  
-        this.setState({
-          [style.dropMenuXs]: false,
-          [style.dropMenuSm]: false,
-        });
+        this.hideAllMenu();
       }
     }
   }
+  
+  scrollToTop = () => {
+  	if (document) {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  	}
+	}
+  
+  hideAllMenu = () => {
+    if (this.state[style.dropMenuXs] || this.state[style.dropMenuSm]) {
+      console.log("hideAllMenu");
+      
+      this.setState({
+        [style.dropMenuXs]: false,
+        [style.dropMenuSm]: false,
+      });
+    }
+	}
  
 	btnNavbarClick = (targetMenuClass) => (e) => {
     this.setState(Object.assign({
@@ -58,9 +69,18 @@ export default class Header extends Component {
     }, {[targetMenuClass]: !this.state[targetMenuClass]}));
 	}
 	
+	
+  linkHome = <MenuLink href="/" text="Home" onClick={this.handleMenuItemClick} />;
+  linkContactUs = <MenuLink href="/contact-us" text="Contact us" onClick={this.handleMenuItemClick} />;
+  linkP1 = <MenuLink href="/promotion/super-market-sale" text="Special Promotion 1" onClick={this.handleMenuItemClick} />;
+  linkP2 = <MenuLink href="/promotion/promotion-2" text="Special Promotion 2" onClick={this.handleMenuItemClick} />;
+  linkP3 = <MenuLink href="/promotion/promotion-3" text="Special Promotion 3" onClick={this.handleMenuItemClick} />;
+  linkP4 = <MenuLink href="/promotion/promotion-4" text="Special Promotion 4" onClick={this.handleMenuItemClick} />;
+	
 	render() {
     const dropMenuXs_ShowClass = this.state[style.dropMenuXs] ? style.show : '';
     const dropMenuSm_ShowClass = this.state[style.dropMenuSm] ? style.show : '';
+    const {linkHome, linkContactUs, linkP1, linkP2, linkP3, linkP4} = this;
 		
 		return (
 			<header class={style.fixedMenuC}>
@@ -83,8 +103,10 @@ export default class Header extends Component {
             {linkHome}
             {linkContactUs}
 						
-						<a href="javascript:void(0)" onClick={this.btnNavbarClick(style.dropMenuSm)}>
-							<span>Special Promotions</span>
+						<a href="javascript:void(0)">
+							<span class={style.itemInner} onClick={this.btnNavbarClick(style.dropMenuSm)}>
+								<span>Special Promotions</span>
+							</span>
 						</a>
 						
 						<div class={`${style.btnNavbar} ${style.btnNavbar__Sm}`} onClick={this.btnNavbarClick(style.dropMenuSm)}>
@@ -132,4 +154,16 @@ export default class Header extends Component {
 
 function Text(props) {
   return <span dangerouslySetInnerHTML={{__html: props.text}}/>;
+}
+
+/**
+ * Plz note that <Link> will stopPropagation the events bubble to parent,
+ * so that we can not listen from parent or use event delegation
+ */
+function MenuLink(props) {
+  return <Link href={props.href} activeClassName={style.active}>
+			<span onClick={props.onClick} class={style.itemInner}>
+				<Text text={props.text}/>
+			</span>
+	</Link>;
 }

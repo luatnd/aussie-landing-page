@@ -59,13 +59,15 @@ $logoHeight: 50px;
   float: right;
   font-size: 16px;
   padding-left: 0;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .menu > nav a {
-  display: inline-block;
-  height: 56px;
-  line-height: 56px;
-  min-width: 50px;
+  //display: inline-block;
   text-align: center;
   background: transparent;
   text-decoration: none;
@@ -75,28 +77,36 @@ $logoHeight: 50px;
   font-size: 1rem;
   font-weight: 200; // Proxima Nova Light
 
-  span {
-    line-height: 1rem;
-    border-bottom-color: transparent;
-    transition: font-weight 0.3s, border-bottom-color 0.5s;
+  // To listen click event
+  span.itemInner {
+    display: inline-block;
+    height: 56px;
+    line-height: 56px;
+    min-width: 50px;
+
+    span {
+      line-height: 1rem;
+      border-bottom-color: transparent;
+      transition: font-weight 0.3s, border-bottom-color 0.5s;
+    }
   }
+}
+
+.menu > nav > a:first-of-type {
+  font-weight: 900; // Proxima Nova Bold
 }
 
 .menu > nav a:hover,
 .menu > nav a:active {
-  //background: rgba(0, 0, 0, 0.2);
-
+  // Move to responsive
   span {
-    //border-bottom: 2px solid darken(rgba(255,255,255,0.6), 20%);
+
   }
 }
 
 .menu > nav a.active {
-  //background: rgba(0, 0, 0, 0.4);
-  font-weight: 900; // Proxima Nova Bold
-
-  span {
-    //border-bottom: 2px solid $whiteE;
+  span.itemInner{
+    font-weight: 900; // Proxima Nova Bold
   }
 }
 
@@ -111,7 +121,7 @@ $logoHeight: 50px;
 .btnNavbar{
   cursor: pointer;
   display: block;
-  margin: 14px 10px 0 0;
+  margin: 8px 10px 0 0;
   padding: 0;
 
   &:hover{
@@ -139,7 +149,7 @@ $logoHeight: 50px;
   overflow: hidden;
   height: 0;
 
-  a {
+  a span.itemInner{
     display: block;
   }
 }
@@ -167,23 +177,42 @@ $logoHeight: 50px;
     img { width: 220px; }
   }
   .menu > nav a {
-    padding: 0 10px;
+    span.itemInner {
+      padding: 0 10px;
 
-    span { padding-bottom: 8px; }
+      span { padding-bottom: 8px; }
+    }
   }
 
   .dropMenu { width: 100%; }
   .dropMenu a {
-    height: 50px!important;
-    line-height: 50px!important;
-    border-bottom: 1px solid rgb(134, 13, 97);
+    span.itemInner {
+      height: 50px!important;
+      line-height: 50px!important;
+      border-bottom: 1px solid rgb(134, 13, 97);
+    }
   }
 }
 
 //@media (min-width: 576px)
 @include media-breakpoint-up(sm) {
-  .menu > nav { padding-top: 1px; }
-  .menu > nav a{ padding: 0 9px;}
+  .btnNavbar{
+    margin: -7px 10px 0 0;
+    .iconBar{
+      border-radius: 4px;
+      width: 4px;
+      height: 4px;
+      margin: 3px auto 0;
+    }
+  }
+
+  .menu > nav { padding-top: 4px; }
+  .menu > nav a{
+    span.itemInner { padding: 0 8px; }
+  }
+  .menu > nav > a:first-of-type {
+    font-weight: 200; // Proxima Nova Bold
+  }
   .logoC {
     padding-left: 15px;
     img { width: 220px; }
@@ -193,15 +222,36 @@ $logoHeight: 50px;
 //@media (min-width: 768px)
 @include media-breakpoint-up(md) {
   .fixedMenuC { height: $headerHeight; }
-  .menu > nav { padding-top: 24px; }
-  .menu > nav a { padding: 0 10px; }
+  .menu > nav { padding-top: 29px; }
+  .menu > nav a{
+    span.itemInner { padding: 0 22px; }
+
+    &.active{
+      span.itemInner {
+        font-weight: 200; // Proxima Nova Light
+      }
+    }
+  }
+  .menu > nav > a:first-of-type span.itemInner{
+    font-weight: 900; // Proxima Nova Bold
+  }
+
+  .menu > nav a:hover,
+  .menu > nav a:active {
+    span.itemInner {
+      span { border-bottom: 2px solid darken(rgba(255, 255, 255, 0.6), 20%); }
+    }
+  }
+  .menu > nav a.active {
+    span.itemInner {
+      span { border-bottom: 2px solid $whiteE; }
+    }
+  }
+
   .logoC {
     padding-top: 28px;
     padding-left: 15px;
     img { width: 257px; }
-  }
-  .menu > nav a {
-    padding: 0 22px;
   }
 
   .menu .dropMenu.show{
@@ -211,25 +261,20 @@ $logoHeight: 50px;
 
 //@media (min-width: 992px)
 @include media-breakpoint-up(lg) {
-  .menu > nav { padding-top: 28px; }
   .menu > nav a {
-    span {
-      padding-bottom: 8px;
+    span.itemInner {
+      span {
+        padding-bottom: 8px;
+      }
     }
   }
 
-  .menu > nav a:hover,
-  .menu > nav a:active {
-    span { border-bottom: 2px solid darken(rgba(255, 255, 255, 0.6), 20%); }
-  }
-  .menu > nav a.active {
-    span { border-bottom: 2px solid $whiteE; }
-  }
-
   .dropMenu a {
-    height: 56px!important;
-    line-height: 56px!important;
-    border-bottom: none;
+    span.itemInner {
+      height: 56px!important;
+      line-height: 56px!important;
+      border-bottom: none;
+    }
   }
 }
 
